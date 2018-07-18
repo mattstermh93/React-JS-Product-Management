@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './components/header';
 import Products from './components/products';
+import AddProduct from './components/addProduct';
 
 class App extends Component {
 constructor() {
@@ -84,6 +85,10 @@ isSearched(term) {
   }
 }
 
+addProduct() {
+  
+}
+
   render() {
     return (
       <div className="App">
@@ -91,6 +96,7 @@ isSearched(term) {
 
         <div className="container">
           <div className="row">
+            <AddProduct addProduct={this.addProduct}/>
             <Products term={this.state.searchTerm} items={this.state.products} isSearched={this.isSearched}/>
           </div>
         </div>
