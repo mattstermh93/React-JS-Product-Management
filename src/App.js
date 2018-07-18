@@ -16,7 +16,7 @@ constructor() {
 
   this.onSearch = this.onSearch.bind(this);
   this.isSearched = this.isSearched.bind(this);
-  this.HandleAddProduct = this.HandleAddProduct.bind(this);
+  this.handleAddProduct = this.handleAddProduct.bind(this);
 
 }
 
@@ -87,8 +87,13 @@ isSearched(term) {
 }
 
 handleAddProduct(product) {
-  // let current_prods = this.state.products;
+  let current_prods = this.state.products;
+  current_prods.push(product);
+  this.setState({products: current_prods})
+}
 
+generateID () {
+  return this.state.products.length + 101;
 }
 
   render() {
@@ -98,7 +103,7 @@ handleAddProduct(product) {
 
         <div className="container">
           <div className="row">
-            <AddProduct HandleAddProduct={this.handleAddProduct}/>
+            <AddProduct generateID={this.generateID()} handleAddProduct={this.handleAddProduct}/>
             <Products term={this.state.searchTerm} items={this.state.products} isSearched={this.isSearched}/>
           </div>
         </div>

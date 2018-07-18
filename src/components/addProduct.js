@@ -12,9 +12,9 @@ class AddProduct extends Component {
     e.preventDefault();
     this.setState({
       newProduct: {
-        id: '',
+        id: this.props.generateID,
         title: this.refs.title.value,
-        price: this.refs.price.value
+        price: parseFloat(this.refs.price.value, 10)
       }
     }, function() {
       this.props.handleAddProduct(this.state.newProduct);
