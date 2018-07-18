@@ -3,6 +3,11 @@ import ProductItem from './productItem';
 
 class Products extends Component {
   render() {
+
+    function twoDecimals(num) {
+      return num.toFixed(2);
+    }
+
     let items;
     if (this.props.items) {
       items = this.props.items.filter(this.props.isSearched(this.props.term)).map(item => {
@@ -27,7 +32,7 @@ class Products extends Component {
         <tr>
           <th scope="col"></th>
           <th scope="col"></th>
-          <th scope="col">Total: ${this.props.total}</th>
+          <th scope="col">Total: ${twoDecimals(this.props.total)}</th>
         </tr>
         </tfoot>
         </table>
