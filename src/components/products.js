@@ -27,7 +27,7 @@ class Products extends Component {
         <tr>
           <th scope="col"></th>
           <th scope="col"></th>
-          <th scope="col">Total: $0.00</th>
+          <th scope="col">Total: ${this.props.total}</th>
         </tr>
         </tfoot>
         </table>

@@ -112,7 +112,7 @@ getTotal() {
         <div className="container">
           <div className="row">
             <AddProduct generateID={this.generateID()} handleAddProduct={this.handleAddProduct}/>
-            <Products term={this.state.searchTerm} items={this.state.products} isSearched={this.isSearched}/>
+            <Products total={this.getTotal()} term={this.state.searchTerm} items={this.state.products} isSearched={this.isSearched}/>
           </div>
         </div>
       </div>
