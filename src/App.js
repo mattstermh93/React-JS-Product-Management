@@ -16,6 +16,7 @@ constructor() {
 
   this.onSearch = this.onSearch.bind(this);
   this.isSearched = this.isSearched.bind(this);
+  this.HandleAddProduct = this.HandleAddProduct.bind(this);
 
 }
 
@@ -85,8 +86,9 @@ isSearched(term) {
   }
 }
 
-addProduct() {
-  
+handleAddProduct(product) {
+  // let current_prods = this.state.products;
+
 }
 
   render() {
@@ -96,7 +98,7 @@ addProduct() {
 
         <div className="container">
           <div className="row">
-            <AddProduct addProduct={this.addProduct}/>
+            <AddProduct HandleAddProduct={this.handleAddProduct}/>
             <Products term={this.state.searchTerm} items={this.state.products} isSearched={this.isSearched}/>
           </div>
         </div>

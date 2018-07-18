@@ -1,6 +1,27 @@
 import React, { Component } from 'react';
 
 class AddProduct extends Component {
+  constructor() {
+    super();
+    this.state = {
+      newProduct: {}
+    }
+  }
+
+  addProduct = e=> {
+    e.preventDefault();
+    this.setState({
+      newProduct: {
+        id: '',
+        title: this.refs.title.value,
+        price: this.refs.price.value
+      }
+    }, function() {
+      this.props.handleAddProduct(this.state.newProduct);
+    });
+  }
+
+
   render() {
     return (
       <div className="AddProduct col-md-6">
