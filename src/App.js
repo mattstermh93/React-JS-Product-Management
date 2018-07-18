@@ -96,6 +96,14 @@ generateID () {
   return this.state.products.length + 101;
 }
 
+getTotal() {
+  let total = 0;
+  this.state.products.map(item => {
+    total += item.price;
+  })
+  return total;
+}
+
   render() {
     return (
       <div className="App">
