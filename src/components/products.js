@@ -25,6 +25,7 @@ class Products extends Component {
             <th scope="col">Name</th>
             <th scope="col">Price</th>
           </tr>
+
         </thead>
         <tbody>
         {items}
