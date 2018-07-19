@@ -76,9 +76,14 @@ componentWillMount() {
       animals: []
     }
   )
+  //add products fo firebase
+  let prodRef = firebase.database().ref('products');
+  prodRef.push(this.state.products)
 }
 
+
 componentDidMount() {
+  this.displayList();
   fetch('https://learnwebcode.github.io/json-example/animals-1.json')
     .then(response => response.json())
     .then(data => this.setState({animals: data}));
@@ -96,10 +101,34 @@ isSearched(term) {
   }
 }
 
+displayList() {
+    const prodsRef = firebase.database().ref('products');
+    prodsRef.on('value', (snapshot) => {
+      let products = snapshot.val();
+      let newState = [];
+      if (products != null) {
+        for (let index in products) {
+          newState.push({
+            id: products[index].id,
+            title: products[index].title,
+            price: products[index].price
+          });
+        }
+      }
+      this.setState({
+        products: newState
+      });
+    });
+  }
+
 handleAddProduct(product) {
   let current_prods = this.state.products;
   current_prods.push(product);
   this.setState({products: current_prods})
+
+  //add new product to firebase
+  firebase.database().ref('products').set(current_prods);
+  this.displayList();
 }
 
 generateID () {
