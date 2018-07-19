@@ -12,7 +12,11 @@ class ProductItem extends Component {
         <th scope="row">{this.props.item.id}</th>
         <td>{this.props.item.title}</td>
         <td>${twoDecimals(this.props.item.price)}
-        <button type="button" class="sub" title="If u want less quantity">-</button></td>
+        <button className="badge badge-danger float-right"
+        onClick={() => alert('remove')}>
+        Remove
+        </button>
+        </td>
       </tr>
     );
   }
