@@ -20,6 +20,7 @@ constructor() {
   this.onSearch = this.onSearch.bind(this);
   this.isSearched = this.isSearched.bind(this);
   this.handleAddProduct = this.handleAddProduct.bind(this);
+  this.handleRemoveProduct = this.handleRemoveProduct.bind(this);
 
 }
 
