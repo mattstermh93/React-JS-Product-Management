@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/header';
 import Products from './components/products';
 import AddProduct from './components/addProduct';
+import Animals from './components/animals';
 
 class App extends Component {
 constructor() {
@@ -74,6 +75,17 @@ componentWillMount() {
   )
 }
 
+componentDidMount() {
+    fetch('https://learnwebcode.github.io/json-example/animals-1.json').then(response => {
+      return response.json()
+    }).then(myAnimals => {
+      this.setState({
+        animals: myAnimals
+      });
+      }
+    )
+  }
+
 onSearch(e) {
   this.setState( {
     searchTerm: e.target.value
@@ -113,6 +125,7 @@ getTotal() {
           <div className="row">
             <AddProduct generateID={this.generateID()} handleAddProduct={this.handleAddProduct}/>
             <Products total={this.getTotal()} term={this.state.searchTerm} items={this.state.products} isSearched={this.isSearched}/>
+            <Animals items={this.state.animals}/>
           </div>
         </div>
       </div>
