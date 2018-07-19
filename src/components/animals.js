@@ -1,47 +1,29 @@
 import React, { Component } from 'react';
-import AnimalItem from './animalItem';
-
-
+import AnimalInfo from './animalInfo';
 
 class Animals extends Component {
-
-
   render() {
-
-    let items;
-    if (this.props.items) {
-      items = this.props.items.map(item => {
-        return <AnimalItem key={item.name} item={item}/>
-
+    let animals;
+    if (this.props.animals) {
+      animals = this.props.animals.map(animal => {
+        return <AnimalInfo key={animal.name} animal={animal}/>
       })
     }
 
-   function createItem(items) {
-     items.map(item => {
-         return <AnimalItem key={item.name} item={item}/>
-     })
-   }
     return (
-      <div className="Animals col-md-6">
-      <table className="table table-dark">
+      <div className="Animals col-md-12">
+        <table className="table table-striped table-dark">
         <thead>
           <tr>
             <th scope="col">Name</th>
             <th scope="col">Species</th>
-            <th scope="col">Likes</th>
-            <th scope="col">Dislikes</th>
+            <th scope="col">Foods - Likes</th>
+            <th scope="col">Foods - Dislikes</th>
           </tr>
         </thead>
         <tbody>
-        {items}
+        {animals}
         </tbody>
-        <tfoot>
-          <tr>
-            <th scope="col"></th>
-            <th scope="col"></th>
-            <th scope="col"></th>
-          </tr>
-        </tfoot>
         </table>
       </div>
     );
