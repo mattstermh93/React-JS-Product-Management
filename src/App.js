@@ -131,6 +131,15 @@ handleAddProduct(product) {
   this.displayList();
 }
 
+handleRemoveProduct(id) {
+  let current_prods = this.state.products;
+  for (let index in current_prods) {
+    if (current_prods[index].id === id) {
+      current_prods.splice(index, 1)
+    }
+  }
+}
+
 generateID () {
   return this.state.products.length + 101;
 }
