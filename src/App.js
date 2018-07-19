@@ -147,7 +147,21 @@ handleRemoveProduct(id) {
 }
 
 generateID () {
-  return this.state.products.length + 101;
+  let id = this.state.products.length + 101;
+  let current_prods = this.state.products;
+  //check to see if id is already used
+  let flag;
+  do {
+    flag = false
+    for (let index in current_prods) {
+      if (current_prods[index].id === id) {
+        id++;
+        flag=true;
+      }
+    }
+  } while (flag === true);
+
+  return id
 }
 
 getTotal() {
