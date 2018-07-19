@@ -4,6 +4,7 @@ import Header from './components/header';
 import Products from './components/products';
 import AddProduct from './components/addProduct';
 import Animals from './components/animals';
+import firebase from './firebase';
 
 class App extends Component {
 constructor() {

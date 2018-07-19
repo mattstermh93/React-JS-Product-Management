@@ -1,3 +1,6 @@
+//import firebase
+import firebase from 'firebase';
+
 var config = {
    apiKey: "AIzaSyDIiN3JeDI-Iw2otAHvAeX2DND--jPSpzw",
    authDomain: "product-manager-7bfe1.firebaseapp.com",
@@ -6,4 +9,5 @@ var config = {
    storageBucket: "",
    messagingSenderId: "174662676886"
  };
- firebase.initializeApp(config);
+firebase.initializeApp(config);
+export default firebase;

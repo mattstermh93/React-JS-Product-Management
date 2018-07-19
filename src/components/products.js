@@ -16,7 +16,8 @@ class Products extends Component {
     }
 
     return (
-      <div className="Products col-md-6 offset-md-3">
+      <div className="row">
+      <div className="Products col-md-6 offset-md-4">
         <table className="table table-striped table-dark">
         <thead>
           <tr>
@@ -36,6 +37,7 @@ class Products extends Component {
         </tr>
         </tfoot>
         </table>
+      </div>
       </div>
     );
   }
