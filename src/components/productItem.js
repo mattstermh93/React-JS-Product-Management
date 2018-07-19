@@ -13,7 +13,7 @@ class ProductItem extends Component {
         <td>{this.props.item.title}</td>
         <td>${twoDecimals(this.props.item.price)}
         <button className="badge badge-danger float-right"
-        onClick={() => alert('remove')}>
+        onClick={() => {this.props.handleRemoveProduct(this.props.item.id)}}>
         Remove
         </button>
         </td>
