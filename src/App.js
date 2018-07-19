@@ -138,6 +138,11 @@ handleRemoveProduct(id) {
       current_prods.splice(index, 1)
     }
   }
+  this.setState({products: current_prods})
+
+  //generate new product state in firebase
+  firebase.database().ref('products').set(current_prods);
+  this.displayList();
 }
 
 generateID () {
