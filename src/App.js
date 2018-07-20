@@ -3,7 +3,6 @@ import './App.css';
 import Header from './components/header';
 import Products from './components/products';
 import AddProduct from './components/addProduct';
-import Animals from './components/animals';
 import firebase from './firebase';
 
 class App extends Component {
@@ -13,8 +12,7 @@ constructor() {
     name: '', //best practice to leave this as null
     occupation: '',
     products: [],
-    searchTerm: '',
-    animals: []
+    searchTerm: ''
   };
 
   this.onSearch = this.onSearch.bind(this);
@@ -73,22 +71,14 @@ componentWillMount() {
           }
 
       ],
-      searchTerm:'',
-      animals: []
+      searchTerm:''
+
 }
 
   )
   //add products fo firebase
   let prodRef = firebase.database().ref('products');
   prodRef.push(this.state.products)
-}
-
-
-componentDidMount() {
-  this.displayList();
-  fetch('https://learnwebcode.github.io/json-example/animals-1.json')
-    .then(response => response.json())
-    .then(data => this.setState({animals: data}));
 }
 
 onSearch(e) {
@@ -174,7 +164,7 @@ getTotal() {
 }
 
   render() {
-    console.log(this.state.animals)
+
     return (
       <div className="App">
         <Header onSearch={this.onSearch} my_name={this.state.name} my_occupation={this.state.occupation} />
@@ -184,9 +174,7 @@ getTotal() {
             <AddProduct generateID={this.generateID()} handleAddProduct={this.handleAddProduct}/>
             <Products handleRemoveProduct={this.handleRemoveProduct} total={this.getTotal()} term={this.state.searchTerm} items={this.state.products} isSearched={this.isSearched}/>
             </div>
-            <div className="row">
-              <Animals animals={this.state.animals}/>
-          </div>
+
         </div>
       </div>
     );
