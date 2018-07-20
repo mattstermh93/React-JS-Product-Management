@@ -14,7 +14,7 @@ const successPayment = data => {
   alert('Payment was successful')
 }
 
-constant errorPayment = data => {
+const errorPayment = data => {
   console.log(data);
   alert('Payment error: did not work')
 }
