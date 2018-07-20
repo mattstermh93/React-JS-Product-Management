@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ProductItem from './productItem';
+import Checkout from ../'checkout';
 
 class Products extends Component {
   render() {
@@ -34,6 +35,11 @@ class Products extends Component {
         <tfoot>
         <tr>
           <th scope="col"></th>
+          <Checkout
+            name={'Product Manager'}
+            description={'Products in Shopping Cart'}
+            amount={1}
+            />
           <th scope="col"></th>
           <th scope="col">Total: ${twoDecimals(this.props.total)}</th>
         </tr>
